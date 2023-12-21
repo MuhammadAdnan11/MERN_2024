@@ -35,12 +35,14 @@ if(userExit){
 }
 
 //hash the password
-const saltRound=10;
-const hash_password= await bcrypt.hash(password,saltRound);
+// const saltRound=10;
+// const hash_password= await bcrypt.hash(password,saltRound);
+/////////////////////////////////////////////
+// const userCreated= await User.create({username, email, phone, password:hash_password })
 
-const userCreated= await User.create({username, email, phone, password:hash_password })
+const userCreated= await User.create({username, email, phone, password })
 
-    res.status(200).json({msg: userCreated});
+    res.status(201).json({msg: userCreated});
 }catch(error){
    res.status(500).json( "internal server error")
 }
