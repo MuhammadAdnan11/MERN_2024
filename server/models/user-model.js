@@ -43,6 +43,12 @@ userSchema.pre('save', async function(next){
     }
 });
 
+// compare the password 
+userSchema.methods.comparePassword= async function(password)
+{
+ return  bcrypt.compare(password, this.password);
+}
+
 //////////////
 
 //What is JWT?
