@@ -47,7 +47,8 @@ const userCreated= await User.create({username, email, phone, password })
         userId: userCreated._id.toString(),
 });
 }catch(error){
-   res.status(500).json( "internal server error")
+//    res.status(500).json( "internal server error")
+next(error);
 }
 
 };
@@ -81,6 +82,7 @@ const login= async(req,res)=>{
 
     } catch (error) {
         res.status(500).json("internal server error");
+       
     }
 }
  
