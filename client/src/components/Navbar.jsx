@@ -6,27 +6,28 @@ export const Navbar = () => {
       <header>
         <div className="container">
           <div className="logo-brand">
-            <NavLink to="/">Adnan Khan</NavLink>
+            <NavLink to="/">ThapaTechnical</NavLink>
           </div>
+
           <nav>
             <ul>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/"> Home </NavLink>
               </li>
               <li>
-                <NavLink to="/about">About</NavLink>
+                <NavLink to="/about"> About </NavLink>
               </li>
               <li>
-                <NavLink to="/service">Service</NavLink>
+                <NavLink to="/service"> Services </NavLink>
               </li>
               <li>
-                <NavLink to="/contact">Contact</NavLink>
+                <NavLink to="/contact"> Contact </NavLink>
               </li>
               <li>
-                <NavLink to="/register">Register</NavLink>
+                <NavLink to="/register"> Register </NavLink>
               </li>
               <li>
-                <NavLink to="/login">Login</NavLink>
+                <NavLink to="/login"> Login </NavLink>
               </li>
             </ul>
           </nav>
