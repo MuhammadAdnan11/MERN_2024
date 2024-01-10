@@ -6,6 +6,8 @@ import Service from "./pages/Service";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import { Navbar } from "./components/Navbar";
+import { Error } from "./pages/Error";
+import Analytics from "./components/Analytics";
 const App = () => {
   return (
     <>
@@ -19,6 +21,8 @@ const App = () => {
 
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/analytics" element={<Analytics />} />
+          <Route path="*" element={<Error />}></Route>
         </Routes>
       </BrowserRouter>
     </>

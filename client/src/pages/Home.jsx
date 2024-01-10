@@ -1,3 +1,5 @@
+import Analytics from "../components/Analytics";
+
 const Home = () => {
   return (
     <>
@@ -37,7 +39,7 @@ const Home = () => {
       </main>
 
       {/* 2nd section  */}
-      {/* <Analytics /> */}
+      <Analytics />
 
       {/* 3rd section  */}
       <section className="section-hero">
