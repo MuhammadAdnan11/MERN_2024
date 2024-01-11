@@ -6,4 +6,6 @@ footer {
   color: whitesmoke;
   text-transform: capitalize;
   font-weight: 500;
+
+  position: relative;
 }
