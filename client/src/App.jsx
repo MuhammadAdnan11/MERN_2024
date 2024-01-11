@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import { Navbar } from "./components/Navbar";
 import { Error } from "./pages/Error";
 import Analytics from "./components/Analytics";
+import Footer from "./components/Footer/Footer";
 const App = () => {
   return (
     <>
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/analytics" element={<Analytics />} />
           <Route path="*" element={<Error />}></Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
