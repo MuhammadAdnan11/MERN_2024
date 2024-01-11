@@ -1,12 +1,11 @@
+import "./Footer.css";
 import React from "react";
-// import "./Footer.css";
+
 const Footer = () => {
   return (
-    <>
-      <Footer>
-        <p>@adnan 2024</p>
-      </Footer>
-    </>
+    <footer>
+      <p>@adnan191022 2024</p>
+    </footer>
   );
 };
 

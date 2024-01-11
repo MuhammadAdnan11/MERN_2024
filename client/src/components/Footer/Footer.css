@@ -3,4 +3,7 @@ footer {
   text-align: center;
   background-color: var(--btn-color);
   margin-top: auto;
+  color: whitesmoke;
+  text-transform: capitalize;
+  font-weight: 500;
 }
