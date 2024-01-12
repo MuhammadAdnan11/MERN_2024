@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Register = () => {
@@ -9,8 +9,9 @@ const Register = () => {
     phone: "",
     password: "",
   });
-  // handling the input value
+
   const handleInput = (e) => {
+    console.log(e);
     let name = e.target.name;
     let value = e.target.value;
 
@@ -20,90 +21,95 @@ const Register = () => {
     });
   };
 
-  //Form handling to get data
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  // handle form on submit
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(user);
+    console.log(user);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+      console.log("response data : ", response);
+
+      if (response.ok) {
+        const responseData = await response.json();
+        alert("registration successful");
+        setUser({ username: "", email: "", phone: "", password: "" });
+        navigate("/login");
+      }
+      console.log(response);
+    } catch (error) {
+      console.error("Error", error);
+    }
   };
+
   return (
     <>
       <section>
         <main>
           <div className="section-registration">
             <div className="container grid grid-two-cols">
-              <div className="registration-image">
+              <div className="registration-image reg-img">
                 <img
                   src="/images/register.png"
-                  alt="Registration icon"
-                  width="500"
-                  height="400"
-                ></img>
+                  alt="a nurse with a cute look"
+                  width="400"
+                  height="500"
+                />
               </div>
-
-              {/* //let tackle registration form */}
+              {/* our main registration code  */}
               <div className="registration-form">
-                <h1 className="main-heading mb-3">Registration Form</h1>
+                <h1 className="main-heading mb-3">registration form</h1>
                 <br />
-
                 <form onSubmit={handleSubmit}>
                   <div>
                     <label htmlFor="username">username</label>
                     <input
                       type="text"
                       name="username"
-                      placeholder="username"
-                      id="username"
-                      required
-                      autoComplete="off"
                       value={user.username}
                       onChange={handleInput}
-                    ></input>
+                      placeholder="username"
+                    />
                   </div>
-
                   <div>
                     <label htmlFor="email">email</label>
                     <input
                       type="text"
                       name="email"
-                      placeholder="Enter your Email"
-                      id="email"
-                      required
-                      autoComplete="off"
                       value={user.email}
                       onChange={handleInput}
-                    ></input>
+                      placeholder="email"
+                    />
                   </div>
-
                   <div>
                     <label htmlFor="phone">phone</label>
                     <input
                       type="number"
                       name="phone"
-                      placeholder="phone"
-                      id="phone"
-                      required
-                      autoComplete="off"
                       value={user.phone}
                       onChange={handleInput}
-                    ></input>
+                    />
                   </div>
-
                   <div>
                     <label htmlFor="password">password</label>
                     <input
                       type="password"
                       name="password"
-                      placeholder="password"
-                      id="password"
-                      required
-                      autoComplete="off"
                       value={user.password}
                       onChange={handleInput}
-                    ></input>
+                      placeholder="password"
+                    />
                   </div>
-
                   <br />
-                  <button type="submit" className="btn  btn-submit">
+                  <button type="submit" className="btn btn-submit">
                     Register Now
                   </button>
                 </form>
@@ -115,5 +121,4 @@ const Register = () => {
     </>
   );
 };
-
 export default Register;
